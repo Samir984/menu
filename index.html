@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./js/controller.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <div class="app-filter">
+        <div class="category">
+          <button class="category__btn category__all" data-set="all">
+            All
+          </button>
+          <button
+            class="category__btn category__menclothing"
+            data-set="men's clothing"
+          >
+            Men Clothing
+          </button>
+          <button
+            class="category__btn category__womenclothing"
+            data-set="women's clothing"
+          >
+            Women clothing
+          </button>
+          <button
+            class="category__btn category__electronics"
+            data-set="electronics"
+          >
+            Electronics
+          </button>
+          <button class="category__btn category__jewelery" data-set="jewelery">
+            Jewelery
+          </button>
+        </div>
+        <div class="select-filter">
+          <label class="sort-label" for="products">Sort By:&nbsp;&nbsp;</label>
+          <select class="sort-by" name="products" id="products">
+            <option value="default" selected>Defult</option>
+            <option value="desending-sort">Price hight to low</option>
+            <option value="ascending-sort">Price low to high</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="products">
+        <!-- show product -->
+        <!--  -->
+      </div>
+    </div>
+  </body>
+</html>

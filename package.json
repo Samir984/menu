@@ -1,0 +1,14 @@
+{
+  "name": "store_menu",
+  "version": "1.0.0",
+  "description": "Making something by implement MVC architecture .",
+  "main": "index.js",
+  "scripts": {
+    "compile-sass": "node-sass scss/main.scss ./style.css -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

@@ -1,0 +1,102 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: sans-serif;
+  color: #333;
+  line-height: 1; }
+
+.category__all {
+  background-color: #efd7aa; }
+  .category__all:hover {
+    background-color: #dfaf54; }
+
+.category__menclothing {
+  background-color: #faf2f2; }
+  .category__menclothing:hover {
+    background-color: #dea8a8; }
+
+.category__womenclothing {
+  background-color: #f5b9ee; }
+  .category__womenclothing:hover {
+    background-color: #e860d8; }
+
+.category__electronics {
+  background-color: #ade1f8; }
+  .category__electronics:hover {
+    background-color: #4fbff0; }
+
+.category__jewelery {
+  background-color: #eeee9f; }
+  .category__jewelery:hover {
+    background-color: #dfdf48; }
+
+.category__btn {
+  font-size: 1.6rem;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  color: #454;
+  font-weight: 600;
+  transition: all 0.3s; }
+  .category__btn:not(:last-child) {
+    margin-right: 1.2rem; }
+  .category__btn:hover {
+    transform: translateY(-1px); }
+
+.sort-label {
+  font-size: 1.6rem;
+  font-weight: 600; }
+  .sort-label + .sort-by {
+    width: 20rem;
+    background-color: transparent;
+    padding: 1rem 0.8rem;
+    font-size: 1.6rem; }
+    .sort-label + .sort-by:focus {
+      outline: none; }
+
+.product {
+  font-size: 1.6rem;
+  height: 38rem; }
+  .product__img-box {
+    width: 100%; }
+  .product__img {
+    width: 100%;
+    height: 27rem; }
+  .product__info {
+    padding: 0.6rem;
+    height: 11rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+  .product__title {
+    color: #6767ec; }
+  .product__price {
+    color: #ff7a06; }
+  .product__review {
+    display: flex;
+    justify-content: space-between; }
+  .product:hover, .product:active {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); }
+
+.app-filter {
+  display: flex;
+  padding: 1.2rem 1em;
+  justify-content: space-between;
+  align-items: center; }
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: 2rem; }
+
+.app {
+  max-width: 130rem;
+  margin: 2rem auto;
+  padding: 1.2rem 1.6rem; }

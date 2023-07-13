@@ -1,0 +1,81 @@
+.category {
+  &__all {
+    background-color: $bgcolor-category-all-btn;
+
+    &:hover {
+      background-color: darken($color: $bgcolor-category-all-btn, $amount: 20%);
+    }
+  }
+  &__menclothing {
+    background-color: $bgcolor-category-menclothing-btn;
+    &:hover {
+      background-color: darken(
+        $color: $bgcolor-category-menclothing-btn,
+        $amount: 20%
+      );
+    }
+  }
+  &__womenclothing {
+    background-color: $bgcolor-category-womencolthing-btn;
+
+    &:hover {
+      background-color: darken(
+        $color: $bgcolor-category-womencolthing-btn,
+        $amount: 20%
+      );
+    }
+  }
+
+  &__electronics {
+    background-color: $bgcolor-categoryelectronics-btn;
+
+    &:hover {
+      background-color: darken(
+        $color: $bgcolor-categoryelectronics-btn,
+        $amount: 20%
+      );
+    }
+  }
+  &__jewelery {
+    background-color: $bgcolor-categoryjewelery-btn;
+
+    &:hover {
+      background-color: darken(
+        $color: $bgcolor-categoryjewelery-btn,
+        $amount: 20%
+      );
+    }
+  }
+  &__btn {
+    font-size: 1.6rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    color: $color-btn;
+    font-weight: 600;
+    transition: all 0.3s;
+
+    &:not(:last-child) {
+      margin-right: 1.2rem;
+    }
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.sort-label {
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  + .sort-by {
+    width: 20rem;
+    background-color: transparent;
+    padding: 1rem 0.8rem;
+    font-size: 1.6rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
