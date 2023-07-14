@@ -15,4 +15,3 @@ const init = function () {
   view.handelSort();
 };
 init();
-
