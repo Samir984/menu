@@ -9,33 +9,48 @@
   </head>
   <body>
     <div class="app">
-      <div class="app-filter">
-        <div class="category">
-          <button class="category__btn category__all" data-set="all">
-            All
-          </button>
-          <button
-            class="category__btn category__menclothing"
-            data-set="men's clothing"
-          >
-            Men Clothing
-          </button>
-          <button
-            class="category__btn category__womenclothing"
-            data-set="women's clothing"
-          >
-            Women clothing
-          </button>
-          <button
-            class="category__btn category__electronics"
-            data-set="electronics"
-          >
-            Electronics
-          </button>
-          <button class="category__btn category__jewelery" data-set="jewelery">
-            Jewelery
-          </button>
+      <div class="header">
+        <div class="nav">
+          <div class="nav__filter">
+            <button class="category__btn category__all" data-set="all">
+              All
+            </button>
+            <button
+              class="category__btn category__menclothing"
+              data-set="men's clothing"
+            >
+              Men Clothing
+            </button>
+            <button
+              class="category__btn category__womenclothing"
+              data-set="women's clothing"
+            >
+              Women clothing
+            </button>
+            <button
+              class="category__btn category__electronics"
+              data-set="electronics"
+            >
+              Electronics
+            </button>
+            <button
+              class="category__btn category__jewelery"
+              data-set="jewelery"
+            >
+              Jewelery
+            </button>
+          </div>
+
+          <div class="cart">
+            <div class="cart__img">
+              <img src="asset/cart.png" alt="cart-icon" />
+            </div>
+            <div class="cart__products">
+              <span class="cart__products--count">0</span>
+            </div>
+          </div>
         </div>
+
         <div class="select-filter">
           <label class="sort-label" for="products">Sort By:&nbsp;&nbsp;</label>
           <select class="sort-by" name="products" id="products">
@@ -45,11 +60,10 @@
           </select>
         </div>
       </div>
-
       <div class="products">
         <!-- show product -->
-        <!--  -->
       </div>
+      <div class="extra-for-utility"></div>
     </div>
   </body>
 </html>

@@ -1,6 +1,25 @@
-.app-filter {
+.header {
   display: flex;
   padding: 1.2rem 1em;
   justify-content: space-between;
   align-items: center;
+
+  .nav {
+    display: flex;
+    gap: 2.4rem;
+    align-items: center;
+
+    &__filter {
+      @include respond(touchpad) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 100;
+        background-color: white;
+        padding: 1rem;
+      }
+    }
+  }
 }

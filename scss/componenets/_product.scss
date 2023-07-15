@@ -2,6 +2,7 @@
   font-size: 1.6rem;
   height: $product-card-height;
   width: 28rem;
+  cursor: pointer;
 
   &__img-box {
     height: $product-imgbox-height;
@@ -31,9 +32,48 @@
     color: $product-price-color;
   }
 
-  &__review {
+  &__row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+
+  &__rating {
+    color: $product-rating-color;
+  }
+
+  &__stock {
+    color: $product-stock-color;
+  }
+
+  &__addtocart {
+    display: flex;
+    align-items: center;
+    & > * {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+
+    .count {
+      border: 1px solid black;
+      padding: 0.7rem;
+      font-size: 1.8rem;
+    }
+
+    .add,
+    .sub {
+      color: white;
+      padding: 0.2rem 0.8rem;
+      background-color: #7a9fe8;
+      font-size: 3rem;
+
+      &:hover {
+        background-color: #568bf4;
+      }
+    }
   }
 
   &:hover,

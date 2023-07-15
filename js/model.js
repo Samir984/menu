@@ -1,5 +1,7 @@
 export const state = {
   products: [],
+  cart: [],
+  totalProductsIncart: 0,
 };
 
 const products = [
@@ -172,13 +174,26 @@ const products = [
 ];
 
 const filterData = function (query) {
-  state.products = products.filter((product) => {
+  state.products = products.filter((product, index) => {
+    let matched;
+    if (
+      product.id ==
+      state.cart.find((c) => {
+        if (c.id === product.id) {
+          matched = c;
+          return c;
+        }
+      })?.id
+    ) {
+      product.count = matched.count;
+    }
     if (product.category === query) return product;
+    if (query === "all") return product;
   });
 };
 export const uploadMenu = function (query) {
   if (query === "all") {
-    return (state.products = products);
+    filterData(query);
   } else if (query === "men's clothing") {
     filterData(query);
   } else if (query === "women's clothing") {
@@ -188,4 +203,39 @@ export const uploadMenu = function (query) {
   } else if (query === "jewelery") {
     filterData(query);
   }
+};
+
+export const manipulateAddToCart = function (id, count) {
+  const addtocart = {
+    id: Number(id),
+    count: Number(count),
+  };
+
+  let newid = true;
+
+  // update if previous id exit
+  if (state.cart.length !== 0) {
+    state.cart.filter((cartProduct, index) => {
+      if (Number(id) === cartProduct.id) {
+        newid = false;
+        cartProduct.count = Number(count);
+      }
+
+      if (cartProduct.count === 0) {
+        state.cart.splice(index, 1);
+      }
+    });
+  }
+
+  //push the object if newid
+  if (count !== 0 && newid) {
+    state.cart.push(addtocart);
+  }
+  // console.log(state.cart);
+
+  //update products item count
+  state.totalProductsIncart = state.cart.reduce((acc, ele) => {
+    return acc + ele.count;
+  }, 0);
+  
 };

@@ -1,4 +1,10 @@
 @mixin respond($breakpoint) {
+  @if $breakpoint==touchpad {
+    @media only screen and (max-width: 63em) {
+      //1008px
+      @content;
+    }
+  }
   @if $breakpoint==phone {
     @media only screen and (max-width: 41em) {
       //656px

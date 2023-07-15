@@ -1,7 +1,9 @@
 class view {
   sortBy = document.querySelector(".sort-by");
+  totalProductsIncart = document.querySelector(".cart__products--count");
   productsContainer = document.querySelector(".products");
-  filters = document.querySelector(".category");
+  filters = document.querySelector(".nav__filter");
+  _cartDatas;
   _datas;
 
   renderData(datas, sort = false) {
@@ -19,21 +21,62 @@ class view {
     this.clear();
     this.productsContainer.insertAdjacentHTML("beforeend", markup);
   }
+
+  updateTotalProductInCart(total) {
+    this.totalProductsIncart.textContent = total;
+  }
+
+  handelAddToCart(handel) {
+    this.productsContainer.addEventListener("click", function (e) {
+      const handelAdd = e.target.closest(".add");
+      const handelSub = e.target.closest(".sub");
+      const productEl = e.target.closest(".product");
+
+      if (!productEl) return;
+
+      let countEl = productEl.querySelector(".count");
+      //add to cart
+      if (handelAdd) {
+        if (
+          productEl.querySelector(".product__stock").textContent.slice(6) ==
+          countEl.textContent
+        )
+          return;
+        countEl.textContent = Number(countEl.textContent) + 1;
+        return handel(productEl.dataset.id, countEl.textContent);
+        //sub to sub
+      } else if (handelSub) {
+        if (countEl.textContent == 0) return;
+        countEl.textContent = Number(countEl.textContent) - 1;
+        return handel(productEl.dataset.id, countEl.textContent);
+      }
+    });
+  }
+
   generateMarkupReview(data) {
-    return `<div class="product">
+    return `<div class="product" data-id="${data.id}">
   <div class="product__img-box">
     <img
       class="product__img"
-      src="${data.image}"
+      // src="${data.image}"
       alt="product"
     />
   </div>
   <div class="product__info">
     <div class="product__title">${data.title}</div>
-      <div class="product__price"><span class="price">${data.price}$</span></div>
-    <div class="product__review">
-      <span class="product__rating">${data.rating.rate} Stars</span>
-      <span class="product__stock">Stock: ${data.rating.count}</span>
+    <div class="product__row">
+      <div class="product__price"><span class="price">${
+        data.price
+      }$</span></div>
+      <div class="product__addtocart">
+         <span class="add">+</span>
+         <span class="count">${data.count ?? 0}</span>
+         <span class="sub">-</span>
+      </div>
+    </div>
+    <div class="product__row">
+      <span class="product__rating">Rating:${data.rating.rate}</span>
+      <span class="product__stock">Stock:${data.rating.count}</span>
     </div>
   </div>
   </div>
@@ -79,4 +122,7 @@ class view {
   }
 }
 
-export default new view();
+const View = new view();
+export default View;
+
+
