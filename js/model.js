@@ -9,11 +9,11 @@ export const state = {
 const products = [
   {
     id: 1,
-    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-    price: 109.95,
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: { rate: 3.9, count: 120 },
+    title: "DANVOUY Womens T Shirt Casual Cotton Short",
+    price: 12.99,
+    category: "women's clothing",
+    image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+    rating: { rate: 3.6, count: 145 },
   },
   {
     id: 2,
@@ -26,19 +26,19 @@ const products = [
   },
   {
     id: 3,
-    title: "Mens Cotton Jacket",
-    price: 55.99,
+    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    price: 109.95,
     category: "men's clothing",
-    image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-    rating: { rate: 4.7, count: 500 },
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    rating: { rate: 3.9, count: 120 },
   },
   {
     id: 4,
-    title: "Mens Casual Slim Fit",
-    price: 15.99,
-    category: "men's clothing",
-    image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
-    rating: { rate: 2.1, count: 430 },
+    title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
+    price: 56.99,
+    category: "women's clothing",
+    image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
+    rating: { rate: 2.6, count: 235 },
   },
   {
     id: 5,
@@ -51,11 +51,11 @@ const products = [
   },
   {
     id: 6,
-    title: "Solid Gold Petite Micropave ",
-    price: 168,
-    category: "jewelery",
-    image: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
-    rating: { rate: 3.9, count: 70 },
+    title: "Mens Casual Slim Fit",
+    price: 15.99,
+    category: "men's clothing",
+    image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+    rating: { rate: 2.1, count: 430 },
   },
   {
     id: 7,
@@ -91,6 +91,14 @@ const products = [
   },
   {
     id: 11,
+    title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
+    price: 9.85,
+    category: "women's clothing",
+    image: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
+    rating: { rate: 4.7, count: 130 },
+  },
+  {
+    id: 12,
     title:
       "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
     price: 109,
@@ -99,7 +107,7 @@ const products = [
     rating: { rate: 4.8, count: 319 },
   },
   {
-    id: 12,
+    id: 13,
     title:
       "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
     price: 114,
@@ -108,7 +116,7 @@ const products = [
     rating: { rate: 4.8, count: 400 },
   },
   {
-    id: 13,
+    id: 14,
     title: "Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin",
     price: 599,
     category: "electronics",
@@ -116,21 +124,13 @@ const products = [
     rating: { rate: 2.9, count: 250 },
   },
   {
-    id: 14,
+    id: 15,
     title:
       "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ",
     price: 999.99,
     category: "electronics",
     image: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
     rating: { rate: 2.2, count: 140 },
-  },
-  {
-    id: 15,
-    title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
-    price: 56.99,
-    category: "women's clothing",
-    image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
-    rating: { rate: 2.6, count: 235 },
   },
   {
     id: 16,
@@ -148,31 +148,31 @@ const products = [
     category: "women's clothing",
     image: "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
     rating: { rate: 3.8, count: 679 },
-  },
+  }, 
   {
     id: 18,
-    title: "MBJ Women's Solid Short Sleeve Boat Neck V ",
-    price: 9.85,
-    category: "women's clothing",
-    image: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
-    rating: { rate: 4.7, count: 130 },
+    title: "Mens Cotton Jacket",
+    price: 55.99,
+    category: "men's clothing",
+    image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
+    rating: { rate: 4.7, count: 500 },
   },
   {
     id: 19,
+    title: "Solid Gold Petite Micropave ",
+    price: 168,
+    category: "jewelery",
+    image: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
+    rating: { rate: 3.9, count: 70 },
+  },
+  {
+    id: 20,
     title: "Opna Women's Short Sleeve Moisture",
     price: 7.95,
     category: "women's clothing",
     image: "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
     rating: { rate: 4.5, count: 146 },
-  },
-  {
-    id: 20,
-    title: "DANVOUY Womens T Shirt Casual Cotton Short",
-    price: 12.99,
-    category: "women's clothing",
-    image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
-    rating: { rate: 3.6, count: 145 },
-  },
+  }
 ];
 
 const filterData = function (query) {
