@@ -192,6 +192,7 @@ const filterData = function (query) {
     } else {
       product.count = 0;
     }
+
     if (product.category === query) return product;
     if (query === "all") return product;
   });

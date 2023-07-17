@@ -30,7 +30,6 @@ class view {
     if (cart) {
       cart.forEach((c) => {
         let matched;
-        console.log("c");
         if (
           c.id ===
           this._datas.find((d) => {
