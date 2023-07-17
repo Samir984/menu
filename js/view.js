@@ -15,7 +15,6 @@ class view {
   }
 
   clearCartProducts(handler) {
-    
     this.clearCart.addEventListener("click", handler);
   }
 
@@ -103,13 +102,12 @@ class view {
     });
   }
 
-  handelSort() {
+  handelSort(cart) {
     let view = this;
     this.sortBy.addEventListener("change", function (e) {
       if (e.target.value === "default") {
         view.renderData(view._datas, true);
-      } else {
-        // view.sortByPrice(e.target.value);
+      } else {     
         view.renderData(view.sortByPrice(e.target.value), true);
       }
     });
@@ -124,7 +122,6 @@ class view {
         return parseInt(data2.price) - parseInt(data1.price);
       }
     });
-
     return copydata;
   }
 }

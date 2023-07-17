@@ -1,7 +1,10 @@
 import * as model from "./model.js";
 import view from "./view.js";
 
-const controlRenderMenu = function (query) {
+const controlRenderMenu = function (query, rerender = false) {
+  //render same filter disable
+  if (model.state.query === query && !rerender) return;
+  console.log("c");
   //get data from model
   model.uploadMenu(query);
   //render data to view
@@ -18,7 +21,7 @@ const controlCartAction = function (id, count, price) {
 
 const controlClearCartAction = function () {
   model.clearCartProduct();
-  controlRenderMenu(model.state.query);
+  controlRenderMenu(model.state.query, true);
   view.updateCartData(model.state.totalProductsIncart, model.state.totalPrice);
 };
 

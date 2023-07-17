@@ -1,4 +1,5 @@
 export const state = {
+  query: "",
   products: [],
   cart: [],
   totalProductsIncart: 0,
