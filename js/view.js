@@ -26,7 +26,24 @@ class view {
     this.productsContainer.insertAdjacentHTML("beforeend", markup);
   }
 
-  updateCartData(total, price) {
+  updateCartData(total, price, cart) {
+    if (cart) {
+      cart.forEach((c) => {
+        let matched;
+        console.log("c");
+        if (
+          c.id ===
+          this._datas.find((d) => {
+            if (c.id === d.id) {
+              matched = d;
+              return matched;
+            }
+          })?.id
+        ) {
+          matched.count = c.count;
+        }
+      });
+    }
     this.totalProductsIncart.textContent = total;
     document.querySelector(".price").textContent = price;
   }
@@ -107,7 +124,7 @@ class view {
     this.sortBy.addEventListener("change", function (e) {
       if (e.target.value === "default") {
         view.renderData(view._datas, true);
-      } else {     
+      } else {
         view.renderData(view.sortByPrice(e.target.value), true);
       }
     });

@@ -4,7 +4,6 @@ import view from "./view.js";
 const controlRenderMenu = function (query, rerender = false) {
   //render same filter disable
   if (model.state.query === query && !rerender) return;
-  console.log("c");
   //get data from model
   model.uploadMenu(query);
   //render data to view
@@ -15,14 +14,18 @@ const controlCartAction = function (id, count, price) {
   // update data to model
   model.manipulateCartData(id, count, price);
 
-  // add total product in count
-  view.updateCartData(model.state.totalProductsIncart, model.state.totalPrice);
+  //render change in view
+  view.updateCartData(
+    model.state.totalProductsIncart,
+    model.state.totalPrice,
+    model.state.cart
+  );
 };
 
 const controlClearCartAction = function () {
   model.clearCartProduct();
   controlRenderMenu(model.state.query, true);
-  view.updateCartData(model.state.totalProductsIncart, model.state.totalPrice);
+  view.updateCartData(model.state.totalProductsIncart);
 };
 
 const controlCart = function () {
