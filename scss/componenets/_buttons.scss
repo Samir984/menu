@@ -3,47 +3,35 @@
     background-color: $bgcolor-category-all-btn;
 
     &:hover {
-      background-color: darken($color: $bgcolor-category-all-btn, $amount: 20%);
+      @include hoverEffect($bgcolor-category-all-btn);
     }
   }
   &__menclothing {
     background-color: $bgcolor-category-menclothing-btn;
     &:hover {
-      background-color: darken(
-        $color: $bgcolor-category-menclothing-btn,
-        $amount: 20%
-      );
+      @include hoverEffect($bgcolor-category-menclothing-btn);
     }
   }
   &__womenclothing {
     background-color: $bgcolor-category-womencolthing-btn;
 
     &:hover {
-      background-color: darken(
-        $color: $bgcolor-category-womencolthing-btn,
-        $amount: 20%
-      );
+      @include hoverEffect($bgcolor-category-womencolthing-btn);
     }
   }
 
   &__electronics {
-    background-color: $bgcolor-categoryelectronics-btn;
+    background-color: $bgcolor-category-electronics-btn;
 
     &:hover {
-      background-color: darken(
-        $color: $bgcolor-categoryelectronics-btn,
-        $amount: 20%
-      );
+      @include hoverEffect($bgcolor-category-electronics-btn);
     }
   }
   &__jewelery {
-    background-color: $bgcolor-categoryjewelery-btn;
+    background-color: $bgcolor-category-jewelery-btn;
 
     &:hover {
-      background-color: darken(
-        $color: $bgcolor-categoryjewelery-btn,
-        $amount: 20%
-      );
+      @include hoverEffect($bgcolor-category-jewelery-btn);
     }
   }
   &__btn {
@@ -68,6 +56,42 @@
   width: 3.6rem;
   height: 3.6rem;
   position: relative;
+
+  &__details {
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    font-size: 1.6rem;
+    background-color: rgb(247, 248, 247);
+    z-index: 100;
+    padding: 0.6rem;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 15rem;
+
+    & > * {
+      font-weight: 600;
+      padding: 1rem;
+    }
+  }
+
+  &:hover &__details,
+  &:active &__details {
+    display: flex;
+  }
+  .clear-cart {
+    background-color: #fd7f58;
+    color: #f5f5f5;
+    transition: all 0.6s;
+
+    &:hover,
+    &:active {
+      @include hoverEffect(#ed7c7c);
+      transform: translateY(-1px);
+    }
+  }
 
   img {
     width: 3.6rem;

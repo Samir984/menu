@@ -3,7 +3,7 @@ class view {
   totalProductsIncart = document.querySelector(".cart__products--count");
   productsContainer = document.querySelector(".products");
   filters = document.querySelector(".nav__filter");
-  _cartDatas;
+  clearCart = document.querySelector(".clear-cart");
   _datas;
 
   renderData(datas, sort = false) {
@@ -14,6 +14,11 @@ class view {
     this.generateMarkup(datas);
   }
 
+  clearCartProducts(handler) {
+    
+    this.clearCart.addEventListener("click", handler);
+  }
+
   generateMarkup(datas) {
     const markup = datas
       .map((data) => this.generateMarkupReview(data))
@@ -22,8 +27,9 @@ class view {
     this.productsContainer.insertAdjacentHTML("beforeend", markup);
   }
 
-  updateTotalProductInCart(total) {
+  updateCartData(total, price) {
     this.totalProductsIncart.textContent = total;
+    document.querySelector(".price").textContent = price;
   }
 
   handelAddToCart(handel) {
@@ -33,8 +39,9 @@ class view {
       const productEl = e.target.closest(".product");
 
       if (!productEl) return;
+      const countEl = productEl.querySelector(".count");
+      const price = productEl.querySelector(".price").textContent;
 
-      let countEl = productEl.querySelector(".count");
       //add to cart
       if (handelAdd) {
         if (
@@ -43,12 +50,12 @@ class view {
         )
           return;
         countEl.textContent = Number(countEl.textContent) + 1;
-        return handel(productEl.dataset.id, countEl.textContent);
+        return handel(productEl.dataset.id, countEl.textContent, price);
         //sub to sub
       } else if (handelSub) {
         if (countEl.textContent == 0) return;
         countEl.textContent = Number(countEl.textContent) - 1;
-        return handel(productEl.dataset.id, countEl.textContent);
+        return handel(productEl.dataset.id, countEl.textContent, price);
       }
     });
   }
@@ -67,7 +74,7 @@ class view {
     <div class="product__row">
       <div class="product__price"><span class="price">${
         data.price
-      }$</span></div>
+      }</span>$</div>
       <div class="product__addtocart">
          <span class="add">+</span>
          <span class="count">${data.count ?? 0}</span>
@@ -122,7 +129,4 @@ class view {
   }
 }
 
-const View = new view();
-export default View;
-
-
+export default new view();

@@ -8,19 +8,32 @@ const controlRenderMenu = function (query) {
   view.renderData(model.state.products);
 };
 
-controlRenderMenu("all");
-
-const controlAddTocart = function (id, count) {
+const controlCartAction = function (id, count, price) {
   // update data to model
-  model.manipulateAddToCart(id, count);
+  model.manipulateCartData(id, count, price);
 
   // add total product in count
-  view.updateTotalProductInCart(model.state.totalProductsIncart);
+  view.updateCartData(model.state.totalProductsIncart, model.state.totalPrice);
 };
 
+const controlClearCartAction = function () {
+  model.clearCartProduct();
+  controlRenderMenu(model.state.query);
+  view.updateCartData(model.state.totalProductsIncart, model.state.totalPrice);
+};
+
+const controlCart = function () {
+  view.updateCartData(model.state.totalProductsIncart, model.state.totalPrice);
+};
+//inital render
+controlRenderMenu("all");
+view.handelFilter(controlRenderMenu);
+
+// debugger;
 const init = function () {
-  view.handelFilter(controlRenderMenu);
+  controlCart();
   view.handelSort();
-  view.handelAddToCart(controlAddTocart);
+  view.handelAddToCart(controlCartAction);
+  view.clearCartProducts(controlClearCartAction);
 };
 init();

@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html {
   font-size: 62.5%;
 
@@ -19,4 +23,3 @@ body {
   color: #333;
   line-height: 1;
 }
-

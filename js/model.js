@@ -2,6 +2,7 @@ export const state = {
   products: [],
   cart: [],
   totalProductsIncart: 0,
+  totalPrice: 0,
 };
 
 const products = [
@@ -174,7 +175,8 @@ const products = [
 ];
 
 const filterData = function (query) {
-  state.products = products.filter((product, index) => {
+  state.query = query;
+  state.products = products.filter((product) => {
     let matched;
     if (
       product.id ==
@@ -186,6 +188,8 @@ const filterData = function (query) {
       })?.id
     ) {
       product.count = matched.count;
+    } else {
+      product.count = 0;
     }
     if (product.category === query) return product;
     if (query === "all") return product;
@@ -205,10 +209,11 @@ export const uploadMenu = function (query) {
   }
 };
 
-export const manipulateAddToCart = function (id, count) {
+export const manipulateCartData = function (id, count, price) {
   const addtocart = {
     id: Number(id),
     count: Number(count),
+    price: Number(price),
   };
 
   let newid = true;
@@ -219,6 +224,7 @@ export const manipulateAddToCart = function (id, count) {
       if (Number(id) === cartProduct.id) {
         newid = false;
         cartProduct.count = Number(count);
+        cartProduct.price = Math.floor(Number(price) * cartProduct.count);
       }
 
       if (cartProduct.count === 0) {
@@ -237,5 +243,36 @@ export const manipulateAddToCart = function (id, count) {
   state.totalProductsIncart = state.cart.reduce((acc, ele) => {
     return acc + ele.count;
   }, 0);
-  
+
+  //update price
+  state.totalPrice = state.cart.reduce((acc, ele) => {
+    return Math.floor(acc + ele.price);
+  }, 0);
+
+  //storing locally
+  storeDataLocal();
 };
+
+export const clearCartProduct = function () {
+  state.cart = [];
+  state.totalPrice = 0;
+  state.totalProductsIncart = 0;
+
+  localStorage.clear();
+};
+
+const storeDataLocal = function () {
+  localStorage.setItem("cart", JSON.stringify(state.cart));
+  localStorage.setItem("totalProductsIncart", state.totalProductsIncart);
+  localStorage.setItem("totalPrice", state.totalPrice);
+};
+
+const init = function () {
+  const storage = localStorage.getItem("totalProductsIncart");
+  if (!storage) return;
+  state.totalProductsIncart = storage;
+  state.cart = JSON.parse(localStorage.getItem("cart"));
+  state.totalPrice = localStorage.getItem("totalPrice");
+};
+
+init();
