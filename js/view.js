@@ -44,7 +44,7 @@ class view {
       });
     }
     this.totalProductsIncart.textContent = total;
-    document.querySelector(".price").textContent = price;
+    document.querySelector(".price").textContent = price??0;
   }
 
   handelAddToCart(handel) {
